@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Bank
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Bank\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Bank\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=Bank()
+comment3.params=z\ card_num
+comment3.target=boolean\ validate_zip(java.lang.String,\ int)
+comment4.params=z\ card_num
+comment4.target=boolean\ validate_pin(java.lang.String,\ int)
+comment5.params=pr\ card
+comment5.target=boolean\ check_Balance(double,\ int)
+comment6.params=pr\ card
+comment6.target=boolean\ check_Credit(double,\ int)
+comment7.params=
+comment7.target=Bank\ getBank()
+numComments=8
