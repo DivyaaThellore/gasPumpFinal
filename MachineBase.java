@@ -15,6 +15,9 @@ public class MachineBase extends Actor
 
     Button1 b1;
     
+    Vector<Screen> screens = new Vector<Screen>();
+    int index=0;
+    
     Keypad keypad=new Keypad();
     Button button = new Button();
     Message message1 = new Message();
@@ -50,6 +53,49 @@ public class MachineBase extends Actor
         message5.setInstructions(s);
     }
     
+    public void init() //initialising all screens 
+    {
+        ScreenLogin loginScreen= new ScreenLogin();
+        loginScreen.setMachine(this);       
+        
+        CardSelection cardSel = new CardSelection();
+        cardSel.setMachine(this);
+        
+        DebitCardScreen debitCard = new DebitCardScreen();
+        debitCard.setMachine(this);
+        
+        CreditCardScreen creditCard = new CreditCardScreen();
+        creditCard.setMachine(this);
+        
+        PinScreen pinScreen = new PinScreen();
+        pinScreen.setMachine(this);
+        
+        FuelTypeSelectionScreen fuelType = new FuelTypeSelectionScreen();
+        fuelType.setMachine(this);
+        
+        InstructionsScreen instructionScreen = new InstructionsScreen();
+        instructionScreen.setMachine(this);
+        
+        RequestReceiptScreen receiptScreen = new RequestReceiptScreen();
+        receiptScreen.setMachine(this);
+        
+        ThankYouScreen thankyouScreen = new ThankYouScreen();
+        thankyouScreen.setMachine(this);
+        
+        screens.add(loginScreen);
+        screens.add(cardSel);
+        screens.add(debitCard);
+        screens.add(creditCard);
+        screens.add(pinScreen);
+        screens.add(fuelType);
+        screens.add(instructionScreen);
+        screens.add(receiptScreen);
+        screens.add(thankyouScreen);
+        
+
+        loginScreen.execute();
+    }
+    
     public void addChildObjects()
     {
        getWorld().addObject(keypad,500,475);
@@ -58,21 +104,30 @@ public class MachineBase extends Actor
        //getWorld().addObject(button,240,100);
        Button b1=new Button();
         getWorld().addObject(b1, 240,50);
+        
         Button b2=new Button();
         getWorld().addObject(b2, 240,150);
-        Button b3=new Button();
-        getWorld().addObject(b3, 240,250);
-        Button b4=new Button();
-        getWorld().addObject(b4, 240,350);
+        
+        Button okButton=new Button();
+        getWorld().addObject(okButton, 240,250);
+        okButton.setMessage(1);
+        
+        Button cancelButton=new Button();
+        getWorld().addObject(cancelButton, 240,350);
+        cancelButton.setMessage(2);
 
         Button b5=new Button();
         getWorld().addObject(b5, 760,50);
         Button b6=new Button();
         getWorld().addObject(b6, 760,150);
-        Button b7=new Button();
-        getWorld().addObject(b7, 760,250);
-        Button b8=new Button();
-        getWorld().addObject(b8, 760,350);
+        
+        Button debitScreen=new Button();
+        getWorld().addObject(debitScreen, 760,250);
+        debitScreen.setMessage(3);
+        
+        Button creditScreen=new Button();
+        getWorld().addObject(creditScreen, 760,350);
+        creditScreen.setMessage(3);
         
          message1.setTextBox(400, 50);
          setMessage1("WELCOME");
@@ -102,8 +157,26 @@ public class MachineBase extends Actor
         nozzle nozzle = new nozzle();
         getWorld().addObject(nozzle, 850,500);
         
-       
+       //create n screens and add to vector
     
+    }
+    
+    public void okPressed()
+    {
+        //
+        if(index==0)
+        {
+            screens.get(index).execute();
+            index++;
+            return;
+        }
+        
+        if(index==1)
+        {
+            //
+            button.buttonPressed(1);
+        }
+        //screens
     }
     
     public void showKeypad()
@@ -117,24 +190,6 @@ public class MachineBase extends Actor
     public void function()
     {
     }
-    
-    /*
-    public void initTexts()
-
-    {
-    gi.drawString("test", 25, 25);
-
-    }
-
-    public void setTexts(String msg)
-    {
-    gi.clear();
-    gi.setColor(greenfoot.Color.YELLOW);
-    gi.fill();
-    gi.setColor(greenfoot.Color.BLACK);
-    gi.drawString(msg,0,25);
-    }
-     */
 
     public void act() 
     {
@@ -191,7 +246,7 @@ public class MachineBase extends Actor
                 setMessage3("credit card?");
                
                 
-                String card=scanner.nextLine();
+                String card="123";
                 
                 if(card=="Debit card"){
                     debit_card=true;
@@ -432,268 +487,53 @@ public class MachineBase extends Actor
         System.out.println("Thank you, Have a great day!");
     }
     
-    public void creditcard()
-    {getWorld().addObject(keypad,500,475);
-       keypad.addKeys();
-       
-       //getWorld().addObject(button,240,100);
-       Button b1=new Button();
-        getWorld().addObject(b1, 240,50);
-        Button b2=new Button();
-        getWorld().addObject(b2, 240,150);
-        Button b3=new Button();
-        getWorld().addObject(b3, 240,250);
-        Button b4=new Button();
-        getWorld().addObject(b4, 240,350);
-
-        Button b5=new Button();
-        getWorld().addObject(b5, 760,50);
-        Button b6=new Button();
-        getWorld().addObject(b6, 760,150);
-        Button b7=new Button();
-        getWorld().addObject(b7, 760,250);
-        Button b8=new Button();
-        getWorld().addObject(b8, 760,350);
-        
-         message1.setTextBox(400, 50);
-         setMessage1("WELCOME");
-         //message1.setInstructions("WELCOME");     
-        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
-        
-        message2.setTextBox(100,50);
-        setMessage2("WELCOME");
-       // message2.setInstructions("TEST");
-         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
-         
-               message3.setTextBox(100,50);
-          setMessage3("WELCOME");  
-        //message3.setInstructions("TEST");
-         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
-         
-               message4.setTextBox(100,50);
-             setMessage4("WELCOME");
-              // message4.setInstructions("TEST");
-         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
-        
-               message5.setTextBox(100,50);
-       setMessage5("WELCOME");
-              // message5.setInstructions("TEST");
-         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
-         
-        nozzle nozzle = new nozzle();
-        getWorld().addObject(nozzle, 850,500);
-        
+    /*public void welcomeSetText()
+    {
+        setMessage1("Welcome \n Please insert card");
+        setMessage2("Next");
     }
     
-    public void debitcard()
+    public void selectCardSetText()
     {
-        getWorld().addObject(keypad,500,475);
-       keypad.addKeys();
-       
-       //getWorld().addObject(button,240,100);
-       Button b1=new Button();
-        getWorld().addObject(b1, 240,50);
-        Button b2=new Button();
-        getWorld().addObject(b2, 240,150);
-        Button b3=new Button();
-        getWorld().addObject(b3, 240,250);
-        Button b4=new Button();
-        getWorld().addObject(b4, 240,350);
-
-        Button b5=new Button();
-        getWorld().addObject(b5, 760,50);
-        Button b6=new Button();
-        getWorld().addObject(b6, 760,150);
-        Button b7=new Button();
-        getWorld().addObject(b7, 760,250);
-        Button b8=new Button();
-        getWorld().addObject(b8, 760,350);
-        
-         message1.setTextBox(400, 50);
-         setMessage1("WELCOME");
-         //message1.setInstructions("WELCOME");     
-        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
-        
-        message2.setTextBox(100,50);
-        setMessage2("WELCOME");
-       // message2.setInstructions("TEST");
-         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
-         
-               message3.setTextBox(100,50);
-          setMessage3("WELCOME");  
-        //message3.setInstructions("TEST");
-         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
-         
-               message4.setTextBox(100,50);
-             setMessage4("WELCOME");
-              // message4.setInstructions("TEST");
-         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
-        
-               message5.setTextBox(100,50);
-       setMessage5("WELCOME");
-              // message5.setInstructions("TEST");
-         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
-         
-        nozzle nozzle = new nozzle();
-        getWorld().addObject(nozzle, 850,500);
-        
+        setMessage1("Select Card Type.");
+        setMessage2("DEBIT");
+        setMessage3("CREDIT");
     }
-    public void fueltype()
-    {getWorld().addObject(keypad,500,475);
-       keypad.addKeys();
-       
-       //getWorld().addObject(button,240,100);
-       Button b1=new Button();
-        getWorld().addObject(b1, 240,50);
-        Button b2=new Button();
-        getWorld().addObject(b2, 240,150);
-        Button b3=new Button();
-        getWorld().addObject(b3, 240,250);
-        Button b4=new Button();
-        getWorld().addObject(b4, 240,350);
-
-        Button b5=new Button();
-        getWorld().addObject(b5, 760,50);
-        Button b6=new Button();
-        getWorld().addObject(b6, 760,150);
-        Button b7=new Button();
-        getWorld().addObject(b7, 760,250);
-        Button b8=new Button();
-        getWorld().addObject(b8, 760,350);
-        
-         message1.setTextBox(400, 50);
-         setMessage1("WELCOME");
-         //message1.setInstructions("WELCOME");     
-        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
-        
-        message2.setTextBox(100,50);
-        setMessage2("WELCOME");
-       // message2.setInstructions("TEST");
-         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
-         
-               message3.setTextBox(100,50);
-          setMessage3("WELCOME");  
-        //message3.setInstructions("TEST");
-         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
-         
-               message4.setTextBox(100,50);
-             setMessage4("WELCOME");
-              // message4.setInstructions("TEST");
-         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
-        
-               message5.setTextBox(100,50);
-       setMessage5("WELCOME");
-              // message5.setInstructions("TEST");
-         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
-         
-        nozzle nozzle = new nozzle();
-        getWorld().addObject(nozzle, 850,500);
-        
-    }
-    public void instruct()
+    
+     public void enterCardSetText()
     {
-        getWorld().addObject(keypad,500,475);
-       keypad.addKeys();
+        setMessage1("Enter Card Number");
        
-       //getWorld().addObject(button,240,100);
-       Button b1=new Button();
-        getWorld().addObject(b1, 240,50);
-        Button b2=new Button();
-        getWorld().addObject(b2, 240,150);
-        Button b3=new Button();
-        getWorld().addObject(b3, 240,250);
-        Button b4=new Button();
-        getWorld().addObject(b4, 240,350);
-
-        Button b5=new Button();
-        getWorld().addObject(b5, 760,50);
-        Button b6=new Button();
-        getWorld().addObject(b6, 760,150);
-        Button b7=new Button();
-        getWorld().addObject(b7, 760,250);
-        Button b8=new Button();
-        getWorld().addObject(b8, 760,350);
-        
-         message1.setTextBox(400, 50);
-         setMessage1("WELCOME");
-         //message1.setInstructions("WELCOME");     
-        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
-        
-        message2.setTextBox(100,50);
-        setMessage2("WELCOME");
-       // message2.setInstructions("TEST");
-         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
-         
-               message3.setTextBox(100,50);
-          setMessage3("WELCOME");  
-        //message3.setInstructions("TEST");
-         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
-         
-               message4.setTextBox(100,50);
-             setMessage4("WELCOME");
-              // message4.setInstructions("TEST");
-         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
-        
-               message5.setTextBox(100,50);
-       setMessage5("WELCOME");
-              // message5.setInstructions("TEST");
-         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
-         
-        nozzle nozzle = new nozzle();
-        getWorld().addObject(nozzle, 850,500);
+    }
+    
+     public void enterPinSetText()
+    {
+        setMessage1("Enter PIN Number");
+       
+    }
+    
+     public void enterZipSetText()
+    {
+        setMessage1("Enter ZIP Number");
+       
+    }
+    
+    public void fueltypeSetText()
+    {
+     setMessage1("Select Fuel Type");  
+     setMessage2("Fuel Type A-$2.8 ");
+     setMessage3("Fuel Type B-$2.1");
+    setMessage4("Fuel Type C-$3.3 ");
+    }
+    public void instructionSetText()
+    {
+        setMessage1("Remove the nozzle and pump the gas");
         
     }
     public void thanks()
-    {getWorld().addObject(keypad,500,475);
-       keypad.addKeys();
-       
-       //getWorld().addObject(button,240,100);
-       Button b1=new Button();
-        getWorld().addObject(b1, 240,50);
-        Button b2=new Button();
-        getWorld().addObject(b2, 240,150);
-        Button b3=new Button();
-        getWorld().addObject(b3, 240,250);
-        Button b4=new Button();
-        getWorld().addObject(b4, 240,350);
-
-        Button b5=new Button();
-        getWorld().addObject(b5, 760,50);
-        Button b6=new Button();
-        getWorld().addObject(b6, 760,150);
-        Button b7=new Button();
-        getWorld().addObject(b7, 760,250);
-        Button b8=new Button();
-        getWorld().addObject(b8, 760,350);
+    {
+        setMessage1("Thank you, Have a great day!");
         
-         message1.setTextBox(400, 50);
-         setMessage1("WELCOME");
-         //message1.setInstructions("WELCOME");     
-        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
-        
-        message2.setTextBox(100,50);
-        setMessage2("WELCOME");
-       // message2.setInstructions("TEST");
-         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
-         
-               message3.setTextBox(100,50);
-          setMessage3("WELCOME");  
-        //message3.setInstructions("TEST");
-         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
-         
-               message4.setTextBox(100,50);
-             setMessage4("WELCOME");
-              // message4.setInstructions("TEST");
-         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
-        
-               message5.setTextBox(100,50);
-       setMessage5("WELCOME");
-              // message5.setInstructions("TEST");
-         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
-         
-        nozzle nozzle = new nozzle();
-        getWorld().addObject(nozzle, 850,500);
-        
-    }
+    }*/
 } 
     

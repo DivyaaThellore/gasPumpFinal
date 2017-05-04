@@ -18,7 +18,7 @@ public class Machine1 extends MachineBase
     }
     
     public void act(){
-        function();
+        
       //  ((MyWorld) getWorld()).text().update("Instructions Screen");
         
     }
@@ -27,12 +27,12 @@ public class Machine1 extends MachineBase
     {
         int count=0;
         // Add your action code here.
-        MachineBase MachineBase = new MachineBase();
+        //MachineBase MachineBase = new MachineBase();
        //((MyWorld) getWorld()).addObject(new Machine1(),367,237);
        //((MyWorld) getWorld()).text().update("This is Scenario - 1");
-       Greenfoot.delay(30);
+       //Greenfoot.delay(30);
         //((MyWorld) getWorld()).text().update("Please follow the instructions");
-        Greenfoot.delay(30);
+       // Greenfoot.delay(30);
         System.out.println("This is Scenario - 1 \" Request Receipt at the end\"");
         welcome();
         if (card_in_slot == true){

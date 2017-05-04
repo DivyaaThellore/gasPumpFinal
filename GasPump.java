@@ -26,13 +26,14 @@ public class GasPump extends Actor
         {
             //getWorld().addObject(machine, 278,171);orl
             
-         MachineBase m=new MachineBase();
+         //MachineBase m=new MachineBase();
           
-          
-         getWorld().addObject(m,500,180);
-         m.addChildObjects();
          
-         machine.function();
+         getWorld().addObject(machine,500,180);
+         
+         machine.addChildObjects();
+         machine.init();
+        
             
          getWorld().removeObjects(getWorld().getObjects(GasPump.class));
 

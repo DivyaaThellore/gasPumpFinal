@@ -16,8 +16,7 @@ public class nozzle extends Actor
             
     public void act() 
     {
-        Screen s=new Screen();
-        s.act();
+        
          if(Greenfoot.mousePressed(this))
         {
             setMessage("this is a test");
