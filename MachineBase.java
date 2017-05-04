@@ -66,13 +66,13 @@ public class MachineBase extends Actor
         getWorld().addObject(b4, 240,350);
 
         Button b5=new Button();
-        getWorld().addObject(b5, 750,50);
+        getWorld().addObject(b5, 760,50);
         Button b6=new Button();
-        getWorld().addObject(b6, 750,150);
+        getWorld().addObject(b6, 760,150);
         Button b7=new Button();
-        getWorld().addObject(b7, 750,250);
+        getWorld().addObject(b7, 760,250);
         Button b8=new Button();
-        getWorld().addObject(b8, 750,350);
+        getWorld().addObject(b8, 760,350);
         
          message1.setTextBox(400, 50);
          setMessage1("WELCOME");
@@ -87,7 +87,7 @@ public class MachineBase extends Actor
                message3.setTextBox(100,50);
           setMessage3("WELCOME");  
         //message3.setInstructions("TEST");
-         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 450, getY()+75);
+         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
          
                message4.setTextBox(100,50);
              setMessage4("WELCOME");
@@ -97,10 +97,11 @@ public class MachineBase extends Actor
                message5.setTextBox(100,50);
        setMessage5("WELCOME");
               // message5.setInstructions("TEST");
-         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 450, getY()+140);
+         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
          
         nozzle nozzle = new nozzle();
         getWorld().addObject(nozzle, 850,500);
+        
        
     
     }
@@ -113,7 +114,9 @@ public class MachineBase extends Actor
         
     }
     
-    
+    public void function()
+    {
+    }
     
     /*
     public void initTexts()
@@ -189,10 +192,12 @@ public class MachineBase extends Actor
                
                 
                 String card=scanner.nextLine();
+                
                 if(card=="Debit card"){
                     debit_card=true;
                     credit_card=false;
                 }
+                // if credit card button pressed. 
                 else if(card=="Credit Card")
                 {
                     credit_card=true;
@@ -229,10 +234,7 @@ public class MachineBase extends Actor
         return;
     }
 
-    public void function()
-    {
-    }
-
+    
     public void get_pin()
     {
         System.out.println("enter card number");
