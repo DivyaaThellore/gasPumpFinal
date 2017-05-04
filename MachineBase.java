@@ -14,11 +14,15 @@ public class MachineBase extends Actor
      */
 
     Button1 b1;
+    
     Keypad keypad=new Keypad();
     Button button = new Button();
     Message message1 = new Message();
     
-    Message message2=new Message();
+    Message message2=new Message();    
+     Message message3 = new Message();     
+      Message message4 = new Message();      
+       Message message5 = new Message();
     public MachineBase(){
         GreenfootImage image = getImage() ;
         image.scale(550,350 ) ;
@@ -27,6 +31,23 @@ public class MachineBase extends Actor
     public void setMessage1(String s)
     {
         message1.setInstructions(s);
+    }
+    
+    public void setMessage2(String s)
+    {
+        message2.setInstructions(s);
+    }
+    public void setMessage3(String s)
+    {
+        message3.setInstructions(s);
+    }
+    public void setMessage4(String s)
+    {
+        message4.setInstructions(s);
+    }
+    public void setMessage5(String s)
+    {
+        message5.setInstructions(s);
     }
     
     public void addChildObjects()
@@ -54,15 +75,34 @@ public class MachineBase extends Actor
         getWorld().addObject(b8, 750,350);
         
          message1.setTextBox(400, 50);
-         message1.setInstructions("WELCOME");     
+         setMessage1("WELCOME");
+         //message1.setInstructions("WELCOME");     
         getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
         
-        message2.setTextBox(500,300);
-        message2.setInstructions("TEST");
+        message2.setTextBox(100,50);
+        setMessage2("WELCOME");
+       // message2.setInstructions("TEST");
+         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
+         
+               message3.setTextBox(100,50);
+          setMessage3("WELCOME");  
+        //message3.setInstructions("TEST");
+         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 450, getY()+75);
+         
+               message4.setTextBox(100,50);
+             setMessage4("WELCOME");
+              // message4.setInstructions("TEST");
+         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
+        
+               message5.setTextBox(100,50);
+       setMessage5("WELCOME");
+              // message5.setInstructions("TEST");
+         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 450, getY()+140);
+         
         nozzle nozzle = new nozzle();
         getWorld().addObject(nozzle, 850,500);
        
-       
+    
     }
     
     public void showKeypad()
@@ -135,14 +175,19 @@ public class MachineBase extends Actor
         
         if(card_in_slot==true)
         {
-             message1.setInstructions("Welcome \n Please insert card");
+            setMessage1("Welcome \n Please insert card");
+             //message1.setInstructions("Welcome \n Please insert card");
             //System.out.println("Welcome \n Please insert card");
 
             if(card_in_slot)
             {
                 
+                setMessage1("Debit card or Credit card");
+                //System.out.println("Debit card or Credit card");
+                setMessage2("Debit card?");
+                setMessage3("credit card?");
+               
                 
-                System.out.println("Debit card or Credit card");
                 String card=scanner.nextLine();
                 if(card=="Debit card"){
                     debit_card=true;

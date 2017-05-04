@@ -18,7 +18,9 @@ public class Machine1 extends MachineBase
     }
     
     public void act(){
+        function();
         ((MyWorld) getWorld()).text().update("Instructions Screen");
+        
     }
     
     public void function() 
@@ -31,7 +33,7 @@ public class Machine1 extends MachineBase
        Greenfoot.delay(30);
         //((MyWorld) getWorld()).text().update("Please follow the instructions");
         Greenfoot.delay(30);
-        System.out.println("This is Scenario - 1 \" Request Receipt at th end\"");
+        System.out.println("This is Scenario - 1 \" Request Receipt at the end\"");
         welcome();
         if (card_in_slot == true){
         if(count==0){

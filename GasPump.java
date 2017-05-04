@@ -31,6 +31,7 @@ public class GasPump extends Actor
           
          getWorld().addObject(m,500,180);
          m.addChildObjects();
+         
             
          getWorld().removeObjects(getWorld().getObjects(GasPump.class));
 
@@ -55,5 +56,5 @@ public class GasPump extends Actor
     {
         machine = m;
     }
-
+    
 }

@@ -47,6 +47,7 @@ public class Message extends Actor
     {  
         gi=new GreenfootImage(x,y);
         setImage(gi);
+        gi.setColor(greenfoot.Color.YELLOW);
  
         
     }
