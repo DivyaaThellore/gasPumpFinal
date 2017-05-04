@@ -19,7 +19,7 @@ public class Machine1 extends MachineBase
     
     public void act(){
         function();
-        ((MyWorld) getWorld()).text().update("Instructions Screen");
+      //  ((MyWorld) getWorld()).text().update("Instructions Screen");
         
     }
     

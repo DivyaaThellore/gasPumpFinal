@@ -52,7 +52,7 @@ public class Button1 extends Actor
         {*/
             getWorld().removeObjects(getWorld().getObjects(GasPump.class));
             //getWorld().removeObjects(getWorld().getObjects(Customer.class));
-            ((MyWorld) getWorld()).text().update("Welcome");
+            //((MyWorld) getWorld()).text().update("Welcome");
             /*getWorld().addObject(machine1, 278,171);
             Greenfoot.delay(30);
             machine1.function();

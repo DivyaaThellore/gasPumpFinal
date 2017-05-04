@@ -10,7 +10,7 @@ public class MyWorld extends World
 {
     public GasPump gasPump1;
 
-    private MessagePop messagepop;
+    //private MessagePop messagepop;
     public Machine1 machine1 = new Machine1();
     private Customer customer = new Customer();
     /**
@@ -49,11 +49,10 @@ public class MyWorld extends World
         // addObject(button1,100,100);
         //button1.setLocation(48,60);
 
-        messagepop= new MessagePop();
-        addObject(messagepop, 106, 203);
+   
         //messagepop.setLocation(426,166);
         //addObject(messagepop);
-        messagepop.setLocation(290,100);
+        
 
         // addObject(button2,100,100);
         // button2.setLocation(48,160);
@@ -81,8 +80,8 @@ public class MyWorld extends World
         
     }
 
-    public MessagePop text()
+    /*public MessagePop text()
     {
         return this.messagepop;
-    }
+    }*/
 }

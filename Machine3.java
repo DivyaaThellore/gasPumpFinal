@@ -18,7 +18,7 @@ public class Machine3 extends MachineBase
         // Add your action code here.
         //Instructions instruction = new Instructions();
         //instruction.update("Instructions Screen");
-        ((MyWorld) getWorld()).text().update("Instructions Screen");
+       // ((MyWorld) getWorld()).text().update("Instructions Screen");
     }   
     
     public Machine3(){

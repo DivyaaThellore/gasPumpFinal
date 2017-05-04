@@ -19,7 +19,7 @@ public class Button2 extends Actor
         if(Greenfoot.mouseClicked(this))
         {
             getWorld().removeObjects(getWorld().getObjects(MachineBase.class));
-            ((MyWorld) getWorld()).text().update("Welcome");
+         //   ((MyWorld) getWorld()).text().update("Welcome");
             getWorld().addObject(machine2, 278,171);
             Greenfoot.delay(30);
             machine2.function();

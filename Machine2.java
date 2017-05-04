@@ -15,7 +15,7 @@ public class Machine2 extends MachineBase
     public void act() 
     {
         // Add your action code here.
-        ((MyWorld) getWorld()).text().update("Instructions Screen");
+       // ((MyWorld) getWorld()).text().update("Instructions Screen");
         //GreenfootImage img=getImage();
         
     }    
