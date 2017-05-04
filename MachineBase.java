@@ -431,5 +431,269 @@ public class MachineBase extends Actor
     {
         System.out.println("Thank you, Have a great day!");
     }
+    
+    public void creditcard()
+    {getWorld().addObject(keypad,500,475);
+       keypad.addKeys();
+       
+       //getWorld().addObject(button,240,100);
+       Button b1=new Button();
+        getWorld().addObject(b1, 240,50);
+        Button b2=new Button();
+        getWorld().addObject(b2, 240,150);
+        Button b3=new Button();
+        getWorld().addObject(b3, 240,250);
+        Button b4=new Button();
+        getWorld().addObject(b4, 240,350);
 
-}
+        Button b5=new Button();
+        getWorld().addObject(b5, 760,50);
+        Button b6=new Button();
+        getWorld().addObject(b6, 760,150);
+        Button b7=new Button();
+        getWorld().addObject(b7, 760,250);
+        Button b8=new Button();
+        getWorld().addObject(b8, 760,350);
+        
+         message1.setTextBox(400, 50);
+         setMessage1("WELCOME");
+         //message1.setInstructions("WELCOME");     
+        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
+        
+        message2.setTextBox(100,50);
+        setMessage2("WELCOME");
+       // message2.setInstructions("TEST");
+         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
+         
+               message3.setTextBox(100,50);
+          setMessage3("WELCOME");  
+        //message3.setInstructions("TEST");
+         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
+         
+               message4.setTextBox(100,50);
+             setMessage4("WELCOME");
+              // message4.setInstructions("TEST");
+         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
+        
+               message5.setTextBox(100,50);
+       setMessage5("WELCOME");
+              // message5.setInstructions("TEST");
+         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
+         
+        nozzle nozzle = new nozzle();
+        getWorld().addObject(nozzle, 850,500);
+        
+    }
+    
+    public void debitcard()
+    {
+        getWorld().addObject(keypad,500,475);
+       keypad.addKeys();
+       
+       //getWorld().addObject(button,240,100);
+       Button b1=new Button();
+        getWorld().addObject(b1, 240,50);
+        Button b2=new Button();
+        getWorld().addObject(b2, 240,150);
+        Button b3=new Button();
+        getWorld().addObject(b3, 240,250);
+        Button b4=new Button();
+        getWorld().addObject(b4, 240,350);
+
+        Button b5=new Button();
+        getWorld().addObject(b5, 760,50);
+        Button b6=new Button();
+        getWorld().addObject(b6, 760,150);
+        Button b7=new Button();
+        getWorld().addObject(b7, 760,250);
+        Button b8=new Button();
+        getWorld().addObject(b8, 760,350);
+        
+         message1.setTextBox(400, 50);
+         setMessage1("WELCOME");
+         //message1.setInstructions("WELCOME");     
+        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
+        
+        message2.setTextBox(100,50);
+        setMessage2("WELCOME");
+       // message2.setInstructions("TEST");
+         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
+         
+               message3.setTextBox(100,50);
+          setMessage3("WELCOME");  
+        //message3.setInstructions("TEST");
+         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
+         
+               message4.setTextBox(100,50);
+             setMessage4("WELCOME");
+              // message4.setInstructions("TEST");
+         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
+        
+               message5.setTextBox(100,50);
+       setMessage5("WELCOME");
+              // message5.setInstructions("TEST");
+         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
+         
+        nozzle nozzle = new nozzle();
+        getWorld().addObject(nozzle, 850,500);
+        
+    }
+    public void fueltype()
+    {getWorld().addObject(keypad,500,475);
+       keypad.addKeys();
+       
+       //getWorld().addObject(button,240,100);
+       Button b1=new Button();
+        getWorld().addObject(b1, 240,50);
+        Button b2=new Button();
+        getWorld().addObject(b2, 240,150);
+        Button b3=new Button();
+        getWorld().addObject(b3, 240,250);
+        Button b4=new Button();
+        getWorld().addObject(b4, 240,350);
+
+        Button b5=new Button();
+        getWorld().addObject(b5, 760,50);
+        Button b6=new Button();
+        getWorld().addObject(b6, 760,150);
+        Button b7=new Button();
+        getWorld().addObject(b7, 760,250);
+        Button b8=new Button();
+        getWorld().addObject(b8, 760,350);
+        
+         message1.setTextBox(400, 50);
+         setMessage1("WELCOME");
+         //message1.setInstructions("WELCOME");     
+        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
+        
+        message2.setTextBox(100,50);
+        setMessage2("WELCOME");
+       // message2.setInstructions("TEST");
+         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
+         
+               message3.setTextBox(100,50);
+          setMessage3("WELCOME");  
+        //message3.setInstructions("TEST");
+         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
+         
+               message4.setTextBox(100,50);
+             setMessage4("WELCOME");
+              // message4.setInstructions("TEST");
+         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
+        
+               message5.setTextBox(100,50);
+       setMessage5("WELCOME");
+              // message5.setInstructions("TEST");
+         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
+         
+        nozzle nozzle = new nozzle();
+        getWorld().addObject(nozzle, 850,500);
+        
+    }
+    public void instruct()
+    {
+        getWorld().addObject(keypad,500,475);
+       keypad.addKeys();
+       
+       //getWorld().addObject(button,240,100);
+       Button b1=new Button();
+        getWorld().addObject(b1, 240,50);
+        Button b2=new Button();
+        getWorld().addObject(b2, 240,150);
+        Button b3=new Button();
+        getWorld().addObject(b3, 240,250);
+        Button b4=new Button();
+        getWorld().addObject(b4, 240,350);
+
+        Button b5=new Button();
+        getWorld().addObject(b5, 760,50);
+        Button b6=new Button();
+        getWorld().addObject(b6, 760,150);
+        Button b7=new Button();
+        getWorld().addObject(b7, 760,250);
+        Button b8=new Button();
+        getWorld().addObject(b8, 760,350);
+        
+         message1.setTextBox(400, 50);
+         setMessage1("WELCOME");
+         //message1.setInstructions("WELCOME");     
+        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
+        
+        message2.setTextBox(100,50);
+        setMessage2("WELCOME");
+       // message2.setInstructions("TEST");
+         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
+         
+               message3.setTextBox(100,50);
+          setMessage3("WELCOME");  
+        //message3.setInstructions("TEST");
+         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
+         
+               message4.setTextBox(100,50);
+             setMessage4("WELCOME");
+              // message4.setInstructions("TEST");
+         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
+        
+               message5.setTextBox(100,50);
+       setMessage5("WELCOME");
+              // message5.setInstructions("TEST");
+         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
+         
+        nozzle nozzle = new nozzle();
+        getWorld().addObject(nozzle, 850,500);
+        
+    }
+    public void thanks()
+    {getWorld().addObject(keypad,500,475);
+       keypad.addKeys();
+       
+       //getWorld().addObject(button,240,100);
+       Button b1=new Button();
+        getWorld().addObject(b1, 240,50);
+        Button b2=new Button();
+        getWorld().addObject(b2, 240,150);
+        Button b3=new Button();
+        getWorld().addObject(b3, 240,250);
+        Button b4=new Button();
+        getWorld().addObject(b4, 240,350);
+
+        Button b5=new Button();
+        getWorld().addObject(b5, 760,50);
+        Button b6=new Button();
+        getWorld().addObject(b6, 760,150);
+        Button b7=new Button();
+        getWorld().addObject(b7, 760,250);
+        Button b8=new Button();
+        getWorld().addObject(b8, 760,350);
+        
+         message1.setTextBox(400, 50);
+         setMessage1("WELCOME");
+         //message1.setInstructions("WELCOME");     
+        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
+        
+        message2.setTextBox(100,50);
+        setMessage2("WELCOME");
+       // message2.setInstructions("TEST");
+         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
+         
+               message3.setTextBox(100,50);
+          setMessage3("WELCOME");  
+        //message3.setInstructions("TEST");
+         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
+         
+               message4.setTextBox(100,50);
+             setMessage4("WELCOME");
+              // message4.setInstructions("TEST");
+         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
+        
+               message5.setTextBox(100,50);
+       setMessage5("WELCOME");
+              // message5.setInstructions("TEST");
+         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
+         
+        nozzle nozzle = new nozzle();
+        getWorld().addObject(nozzle, 850,500);
+        
+    }
+} 
+    
