@@ -110,6 +110,7 @@ public class MachineBase extends Actor
         
         Button okButton=new Button();
         getWorld().addObject(okButton, 240,250);
+        okButton.setMachine(this);
         okButton.setMessage(1);
         
         Button cancelButton=new Button();
@@ -123,11 +124,13 @@ public class MachineBase extends Actor
         
         Button debitScreen=new Button();
         getWorld().addObject(debitScreen, 760,250);
+        debitScreen.setMachine(this);
         debitScreen.setMessage(3);
         
         Button creditScreen=new Button();
         getWorld().addObject(creditScreen, 760,350);
-        creditScreen.setMessage(3);
+        creditScreen.setMachine(this);
+        creditScreen.setMessage(4);
         
          message1.setTextBox(400, 50);
          setMessage1("WELCOME");
@@ -166,21 +169,72 @@ public class MachineBase extends Actor
         //
         if(index==0)
         {
-            screens.get(index).execute();
+            //
+            //validation 
+            // return
+            //
             index++;
+            screens.get(index).execute();
+            
             return;
         }
         
-        if(index==1)
+        else if(index==1)
         {
             //
-            button.buttonPressed(1);
+            //
+            //
+            //don`t keep index here. hence if the user presses ok , nothing will happen.
+            
+            screens.get(index).execute();
+        }
+        
+          
+        else if(index==2)
+        {
+            //debit card logic
+            //
+            //
+            
+            
+            
+            //debit card screen needs to go past credit card screen, hence increment by 2.
+            index++;
+            index++;
+            screens.get(index).execute();
+        }
+        
+        else if(index==3)
+        {
+            index++;
+            screens.get(index).execute();
+        }
+        
+        else if(index==4)
+        {
+            
         }
         //screens
     }
     
+    public void creditCardPressed()
+    {
+      
+        index=3;
+        
+        //show the creditCardScreen
+    }
+    
+    public void debitCardPressed()
+    {
+        index=2;
+        screens.get(index).execute();
+        //show debitCardScreen index=
+    }
+    
     public void showKeypad()
     {
+        
     }
     public void hideKeypad()
     {

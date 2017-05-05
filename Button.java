@@ -8,25 +8,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Button extends Actor
 {
-    //MachineBase machine = new MachineBase();
+    MachineBase machine ;
     Message m=new Message();
     
     int msg = 0;
     
+   
+    
     public void act()
     {
-    }
-    
-    public void buttonPressed(int messageNum) 
-    {
-        msg = messageNum;
+       
         // Add your action code here.
         if(Greenfoot.mouseClicked(this)) 
         {
+            System.out.println("button pressed called");
             if(msg==1)
             {
                 //ok. go to next screen
-                //machine.okPressed();
+                machine.okPressed();
             }
             else if(msg==2)
             {
@@ -34,11 +33,11 @@ public class Button extends Actor
             }
             else if(msg==3)
             {
-                //debit card selection. do debitCard functions
+                machine.debitCardPressed();
             }
             else if(msg==4)
             {
-                //credit card selection. do creditCard functions
+                machine.creditCardPressed();
             }
             else
             {
@@ -58,7 +57,7 @@ public class Button extends Actor
     
     public void setMachine(MachineBase mb)
     {
-        //machine=mb;
+        machine=mb;
     }
     
     public Button()

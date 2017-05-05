@@ -43,7 +43,7 @@ public class MyWorld extends World
 
         GasPump gasPump3 = new GasPump();
         addObject(gasPump3, 367, 237);
-        gasPump3.setLocation(690,288);
+        gasPump3.setLocation(675,288);
         gasPump3.setMachine(machine3);
 
         // addObject(button1,100,100);
@@ -69,7 +69,20 @@ public class MyWorld extends World
         //addObject(keypad,300,100);
 
         //keypad.setLocation(439,496);
+         
         
+        
+          CardSlot cs = new CardSlot();
+        addObject(cs, 850, 100);
+        
+            Card c1 = new Card();
+        addObject(c1, 850, 200);
+        
+            Card c2 = new Card();
+        addObject(c2, 850, 300);
+        
+            Card c3 = new Card();
+        addObject(c3, 850, 400);
         
 
         
@@ -80,8 +93,5 @@ public class MyWorld extends World
         
     }
 
-    /*public MessagePop text()
-    {
-        return this.messagepop;
-    }*/
+   
 }
