@@ -209,9 +209,9 @@ public class MachineBase extends Actor
         //index
         if(index==6)
         {
-            DecimalFormat df= new DecimalFormat("##.##");
+            DecimalFormat df= new DecimalFormat("0.00");
             //df.format(elapsedTime);
-            setMessage1("Pumping gas..."+             df.format(elapsedTime) +" Gallons");
+            setMessage1("Pumping gas..."+             df.format(elapsedTime/30000) +" Gallons");
         }
     }
     

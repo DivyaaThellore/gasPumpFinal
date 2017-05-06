@@ -14,6 +14,8 @@ public class Key extends Actor
     GreenfootImage gi;
     String value;
     
+
+
     public Key()
     {
         gi=new GreenfootImage(400,400);

@@ -11,6 +11,7 @@ private long elapsedTime = 0;
  private long currentTime;
  private boolean start=true;
 private float sendVal;
+private boolean mouseDown;
     public void setMessage(String msg)
            {
              
@@ -29,17 +30,29 @@ private float sendVal;
     public void act() 
     {
         
-        //if(Greenfoot.mouseDragged(this))
+        if(Greenfoot.mousePressed(this))
         {
-           //  setLocation(Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+            mouseDown=true;
+            lastTime = System.currentTimeMillis();
         }
         
-        if(Greenfoot.mouseDragged(this))
+         if(Greenfoot.mouseClicked(this))
+         {
+             mouseDown=false;
+             elapsedTime=elapsedTime + currentTime - lastTime;
+             
+             
+             
+             
+         }
+        
+        /*
+        if(Greenfoot.mouseClicked(this))
         {
              
            
             
-       //     if(start)e
+            
             {
             lastTime = System.currentTimeMillis();           
             elapsedTime+=lastTime;
@@ -60,15 +73,21 @@ private float sendVal;
             sendVal = elapsedTime/100000;
             machine.notFuelling(sendVal);
             start=true;
+            }
         }
+
+*/
            
-           
-           
-        }
-        else
-        {
-            
-        }
+           if(mouseDown)
+           {
+               setLocation(Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());               
+               currentTime = System.currentTimeMillis();
+               elapsedTime= elapsedTime + currentTime -lastTime ;
+               machine.Fuelling(elapsedTime);
+               
+           }
+        
+       
         
           
          
