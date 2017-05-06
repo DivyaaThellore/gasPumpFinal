@@ -129,60 +129,60 @@ public class MachineBase extends Actor
        
        //getWorld().addObject(button,240,100);
        Button b1=new Button();
-        getWorld().addObject(b1, getXLeftCorner(),(getYLeftCorner()+b1.getImage().getHeight()+40));
+        getWorld().addObject(b1, getXLeftCorner()-20,(getYLeftCorner()+b1.getImage().getHeight()+40));
         
         Button b2=new Button();
-        getWorld().addObject(b2, getXLeftCorner(),(getYLeftCorner()+b1.getImage().getHeight()+115));
+        getWorld().addObject(b2, getXLeftCorner()-20,(getYLeftCorner()+b1.getImage().getHeight()+110));
         
         Button okButton=new Button();
-        getWorld().addObject(okButton, getXLeftCorner(),(getYLeftCorner()+b1.getImage().getHeight()+190));
+        getWorld().addObject(okButton, getXLeftCorner()-20,(getYLeftCorner()+b1.getImage().getHeight()+180));
         okButton.setMachine(this);
         okButton.setMessage(1);
         
         Button cancelButton=new Button();
-        getWorld().addObject(cancelButton,getXLeftCorner(),(getYLeftCorner()+b1.getImage().getHeight()+265));
+        getWorld().addObject(cancelButton,getXLeftCorner()-20,(getYLeftCorner()+b1.getImage().getHeight()+250));
         cancelButton.setMessage(2);
 
         Button b5=new Button();
-        getWorld().addObject(b5,getXLeftCorner()+550,(getYLeftCorner()+b1.getImage().getHeight()+40));
+        getWorld().addObject(b5,getXLeftCorner()+570,(getYLeftCorner()+b1.getImage().getHeight()+40));
         
         Button b6=new Button();
-        getWorld().addObject(b6, getXLeftCorner()+550,(getYLeftCorner()+b1.getImage().getHeight()+115));
+        getWorld().addObject(b6, getXLeftCorner()+570,(getYLeftCorner()+b1.getImage().getHeight()+110));
         
         Button debitScreen=new Button();
-        getWorld().addObject(debitScreen, getXLeftCorner()+550,(getYLeftCorner()+b1.getImage().getHeight()+190));
+        getWorld().addObject(debitScreen, getXLeftCorner()+570,(getYLeftCorner()+b1.getImage().getHeight()+180));
         debitScreen.setMachine(this);
         debitScreen.setMessage(3);
         
         Button creditScreen=new Button();
-        getWorld().addObject(creditScreen,getXLeftCorner()+550,(getYLeftCorner()+b1.getImage().getHeight()+265));
+        getWorld().addObject(creditScreen,getXLeftCorner()+570,(getYLeftCorner()+b1.getImage().getHeight()+250));
         creditScreen.setMachine(this);
         creditScreen.setMessage(4);
       
          message1.setTextBox(400, 50);
          setMessage1("WELCOME");
          //message1.setInstructions("WELCOME");     
-        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+50);
+        getWorld().addObject(message1,getX(),  getY()-getImage().getHeight()/2+60);
         
         message2.setTextBox(100,50);
         setMessage2("WELCOME");
        // message2.setInstructions("TEST");
-         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+75);
+         getWorld().addObject(message2,getX()-getImage().getWidth()/2 +90, getY()+58);
          
                message3.setTextBox(100,50);
           setMessage3("WELCOME");  
         //message3.setInstructions("TEST");
-         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+75);
+         getWorld().addObject(message3,getX()-getImage().getWidth()/2 + 460, getY()+58);
          
                message4.setTextBox(100,50);
              setMessage4("WELCOME");
               // message4.setInstructions("TEST");
-         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+140);
+         getWorld().addObject(message4,getX()-getImage().getWidth()/2 +90, getY()+125);
         
                message5.setTextBox(100,50);
        setMessage5("WELCOME");
               // message5.setInstructions("TEST");
-         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
+         getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+125);
          
         nozzle nozzle = new nozzle();
         nozzle.setMachine(this);
