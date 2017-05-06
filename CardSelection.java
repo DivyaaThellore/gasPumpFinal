@@ -22,7 +22,9 @@ public class CardSelection extends Screen
     
     {
         m.setMessage1("Select the Card type to proceed.");
-        m.setMessage3("Debit?");
-        m.setMessage5("Credit?");
+        m.setMessage2("");
+        m.setMessage3("Debit");
+        m.setMessage4("");
+        m.setMessage5("Credit");
     }
 }

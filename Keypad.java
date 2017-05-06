@@ -68,6 +68,18 @@ public class Keypad extends Actor
         getWorld().addObject(k9, (getXLeftCorner() + this.getImage().getWidth()*5/6),( getYLeftCorner()+this.getImage().getHeight()*5/6));
         getWorld().addObject(k0, (getXLeftCorner() + this.getImage().getWidth()/6),( getYLeftCorner()+this.getImage().getHeight()*5/6));
         */
+
+       k1.setImage("Images/key1.PNG");
+        k2.setImage("Images/key2.PNG");
+        k3.setImage("Images/key3.PNG");
+        k4.setImage("Images/key4.PNG");
+        k5.setImage("Images/key5.PNG");
+        k6.setImage("Images/key6.PNG");
+        k7.setImage("Images/key7.PNG");
+        k8.setImage("Images/key8.PNG");
+        k9.setImage("Images/key9.PNG");
+        k0.setImage("Images/key0.PNG");
+       
        
        getWorld().addObject(k1,(getXLeftCorner() + this.getImage().getWidth()/6),( getYLeftCorner()+this.getImage().getHeight()/8));        
         getWorld().addObject(k2, (getXLeftCorner() + this.getImage().getWidth()*3/6),( getYLeftCorner()+this.getImage().getHeight()/8));  
