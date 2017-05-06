@@ -22,12 +22,14 @@ public class MachineBase extends Actor
     int index=0;
     int printCount;
     String pinEntered ="";
-    boolean cardInSlot;
+
     Key key=new Key();
     Keypad keypad=new Keypad();
     Button button = new Button();
     Message message1 = new Message();
     Util util = new Util();
+    boolean cardInSlot = false;
+    boolean validPin = false;
     
     Message message2=new Message();    
     Message message3 = new Message();     
@@ -269,20 +271,25 @@ public class MachineBase extends Actor
             //debit card logic
             //
             //
-            
+            if(validPin && cardInSlot)
+            {
             
             
             //debit card screen needs to go past credit card screen, hence increment by 2.
             index++;
             index++;
             screens.get(index).execute();
+        }
             //key.execute();
         }
         
         else if(index==3) // credit card
         {
+            if(validPin && cardInSlot)
+            {
             index++;
             screens.get(index).execute();
+        }
             //key.execute();
         }
         
@@ -336,6 +343,8 @@ public class MachineBase extends Actor
         if(index==2)
         {
             setMessage1("Card Received, Enter Pin");
+            cardInSlot=true;
+            setMessage2("Next");
         }
     }
     
@@ -713,10 +722,10 @@ public class MachineBase extends Actor
         
              if(printCount==4)
              {
-                 cardInSlot = util.validateDebitCard(pinEntered);
+                 validPin = util.validateDebitCard(pinEntered);
                  pinEntered="";
                  printCount=0;
-                 if (cardInSlot == true)
+                 if (validPin == true)
                  {
                      index=5;// to skip PinScreen class.
                      okPressed();
@@ -744,10 +753,10 @@ public class MachineBase extends Actor
         
         if(printCount==5)
         {
-            cardInSlot=util.validateCreditCard(pinEntered);
+            validPin=util.validateCreditCard(pinEntered);
             pinEntered="";
             printCount=0;
-            if (cardInSlot == true)
+            if (validPin == true)
             {
                 index=5;
                 //index++;

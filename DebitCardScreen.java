@@ -19,8 +19,8 @@ public class DebitCardScreen extends Screen
     
     public void execute()
     {
-        m.setMessage1("Enter PIN and Click Next");
-        m.setMessage2("Next");
+        m.setMessage1("Enter Card");
+        m.setMessage2("");
         m.setMessage3("");
         m.setMessage4(" ");
         m.setMessage5(" ");

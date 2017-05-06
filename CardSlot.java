@@ -19,27 +19,12 @@ public class CardSlot extends Actor
         
         if(intersectingCard !=null)
         {
-           
-              
-        Message cardAccepted = new Message()
-        {
-            public void  act()
-            {
-                if(Greenfoot.mouseClicked(this))
-                {
-                    getWorld().removeObject(this);
-                }
-                
-            }
-        };
-        cardAccepted.setInstructions("HI");
-        machine.setCard();
-        getWorld().addObject(cardAccepted, 600, 600);
-                
-                
-           
+            machine.setCard();
+
+            intersectingCard.setLocation(890, 200);
 
         }
+        
     }  
     
     public void  setMachine(MachineBase m)
