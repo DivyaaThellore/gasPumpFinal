@@ -104,15 +104,21 @@ public class MachineBase extends Actor
         
         FuelClass fuelA = new FuelClass();
          fuelA.setMachine(this);
-             getWorld().addObject(fuelA, 150,450);
+         fuelA.setImage("images/GasolineGrade1.PNG");
+                      fuelA.getImage().scale(40, 80);
+             getWorld().addObject(fuelA, 200,450);
             
             FuelClass fuelB = new FuelClass();
              fuelB.setMachine(this);
+                      fuelB.setImage("images/GasolineGrade2.PNG");
+                                   fuelB.getImage().scale(40, 80);
             getWorld().addObject(fuelB, 250,450);
             
             FuelClass fuelC = new FuelClass();
              fuelC.setMachine(this);
-            getWorld().addObject(fuelC, 350,450);
+             fuelC.setImage("images/GasolineGrade3.PNG");
+             fuelC.getImage().scale(40, 80);
+            getWorld().addObject(fuelC, 300,450);
 
            
            
