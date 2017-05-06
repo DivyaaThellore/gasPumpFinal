@@ -207,7 +207,7 @@ public class MachineBase extends Actor
     public void Fuelling(float elapsedTime)
     {
         //index
-        if(index==6)
+        if(index==7)
         {
             DecimalFormat df= new DecimalFormat("0.00");
             //df.format(elapsedTime);
@@ -297,9 +297,37 @@ public class MachineBase extends Actor
         {
             
             screens.get(index).execute();
+            index++;
+        }
+        else if(index==7)
+        {
+            screens.get(index).execute();
+            index++;
+        }
+        else if(index==8)
+        {
+            printReceipt();
+            screens.get(index).execute();
             
         }
+        
         //screens
+    }
+    
+    public void printReceipt()
+    {
+        Message receipt = new Message()
+        {
+            public void  act()
+            {
+                if(Greenfoot.mouseClicked(this))
+                {
+                    getWorld().removeObject(this);
+                }
+            }
+        };
+        receipt.setInstructions("HI");
+        getWorld().addObject(receipt, 200, 200);
     }
     
     public void creditCardPressed()
