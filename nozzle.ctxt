@@ -2,6 +2,8 @@
 comment0.target=nozzle
 comment1.params=msg
 comment1.target=void\ setMessage(java.lang.String)
-comment2.params=
-comment2.target=void\ act()
-numComments=3
+comment2.params=m
+comment2.target=void\ setMachine(MachineBase)
+comment3.params=
+comment3.target=void\ act()
+numComments=4

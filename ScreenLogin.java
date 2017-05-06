@@ -19,8 +19,11 @@ public class ScreenLogin extends Screen
     public void execute()
     
     {
-        m.setMessage1("Welcome \n Please insert card");
+        m.setMessage1("Welcome! Click Next to proceed.");
         m.setMessage2("Next");
+        m.setMessage3(" ");
+        m.setMessage4(" ");
+        m.setMessage5(" ");
         return;
     }
     

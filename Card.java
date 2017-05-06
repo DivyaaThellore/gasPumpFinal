@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Card extends Actor
 {
-   Message m;
+   int index;
+   MachineBase m = new MachineBase();
+   
     public void act() 
     {
          int mouseX, mouseY ;        
@@ -17,22 +19,38 @@ public class Card extends Actor
             MouseInfo mouse = Greenfoot.getMouseInfo();  
             mouseX=mouse.getX();  
             mouseY=mouse.getY();  
-            setLocation(mouseX, mouseY);  
+            setLocation(mouseX, mouseY); 
+        }
+        
+        CardSlot slot=(CardSlot)getOneIntersectingObject(CardSlot.class);
+        if(slot!=null && Greenfoot.mouseClicked(this))
+         { 
+             
+             m.setMessage1(" ");
+             m.setMessage1("Card Swiped");
+             
+             System.out.println("Card Swiped");
+
+             index=5;
+             Greenfoot.delay(50);
+             return;
         } 
-    } 
+    }
+
     
-    
-    public void swiped()
+    /*public void swiped()
     {
-    Actor WorldActor=getOneIntersectingObject(this.getClass());
-        if(WorldActor!=null)
+        CardSlot slot=(CardSlot)getOneIntersectingObject(CardSlot.class);
+        if(slot!=null || Greenfoot.mouseClicked(this))
          {  
          
       System.out.println("Card Swiped");
+      m.setMessage1("Card Swiped");
         //gb.act();
         Greenfoot.delay(50);
         return;
     }
+    }*/
  
 }
-}
+

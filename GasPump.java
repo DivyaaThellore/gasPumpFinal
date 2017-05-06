@@ -34,8 +34,12 @@ public class GasPump extends Actor
          machine.addChildObjects();
          machine.init();
         
-            
+         
+         
+         
+         getWorld().removeObjects(getWorld().getObjects(Customer.class));
          getWorld().removeObjects(getWorld().getObjects(GasPump.class));
+         
 
             //Button1 b1 = new Button1("hi"());
             //getWorld().addObject(b1,100, 100);

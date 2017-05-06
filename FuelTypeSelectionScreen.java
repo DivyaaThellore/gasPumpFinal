@@ -19,7 +19,7 @@ public class FuelTypeSelectionScreen extends Screen
     
     public void execute()
     {
-       m.setMessage1("Select Fuel Type");  
+       m.setMessage1("Card Authenticated. Select Fuel Type");  
        m.setMessage2("Fuel Type A-$2.8 ");
        m.setMessage3("Fuel Type B-$2.1");
        m.setMessage4("Fuel Type C-$3.3 ");

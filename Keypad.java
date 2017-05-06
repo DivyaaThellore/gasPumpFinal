@@ -20,8 +20,8 @@ public class Keypad extends Actor
     Key k9=new Key("9");
     Key k0=new Key("0");
     Vector<Key> keys = new Vector<Key>();
-
-     
+    MachineBase machine;
+    
     public void keypad()
     {
         getImage().scale(150,150);
@@ -36,6 +36,11 @@ public class Keypad extends Actor
         nozzle n = new nozzle();
         getWorld().addObject(n,880,300);
 
+    }
+    
+    public void setMachine(MachineBase m)
+    {
+        machine=m;
     }
 
     public int getXLeftCorner()
@@ -85,17 +90,30 @@ public class Keypad extends Actor
         keys.add(k8);
         keys.add(k9);
         keys.add(k0);
+        
+        k1.setMachine(machine);
+        k2.setMachine(machine);
+        k3.setMachine(machine);
+        k4.setMachine(machine);
+        k5.setMachine(machine);
+        k6.setMachine(machine);
+        k7.setMachine(machine);
+        k8.setMachine(machine);
+        k9.setMachine(machine);
+        k0.setMachine(machine);
+        
 
         for(int i = 0 ; i<keys.size();i++)
         {
             keys.get(i).addMsg();
         }
-
-    } 
-
+        
+        getWorld().setActOrder(Key.class,Keypad.class);
+        getWorld().setPaintOrder(Key.class,Keypad.class); 
+    }
     public void act() 
     {
-
+        
     }
 
 }

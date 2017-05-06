@@ -4,6 +4,13 @@ public class nozzle extends Actor
 {
    public boolean nozzle_check=false;
      Message m=new Message();
+     MachineBase machine;
+     
+     private long lastTime;
+private long elapsedTime = 0;
+ private long currentTime;
+ private boolean start=true;
+private float sendVal;
     public void setMessage(String msg)
            {
              
@@ -13,17 +20,54 @@ public class nozzle extends Actor
               
             }
             
+      
+            public void setMachine(MachineBase m)
+            {
+                machine = m;
+            }
             
     public void act() 
     {
         
-         if(Greenfoot.mousePressed(this))
+        //if(Greenfoot.mouseDragged(this))
         {
-            setMessage("this is a test");
-            if(nozzle_check==false)
+           //  setLocation(Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+        }
+        
+        if(Greenfoot.mouseDragged(this))
+        {
+             
+           
+            
+       //     if(start)e
             {
-              nozzle_check=true;  
+            lastTime = System.currentTimeMillis();           
+            elapsedTime+=lastTime;
+            machine.Fuelling(elapsedTime/100000);
+            start=false;
             }
+           
+            
+        }
+        
+        if(Greenfoot.mouseClicked(this))
+        {
+     //      if(!start)
+           {
+               
+            currentTime = System.currentTimeMillis();
+            elapsedTime += currentTime - lastTime;
+            sendVal = elapsedTime/100000;
+            machine.notFuelling(sendVal);
+            start=true;
+        }
+           
+           
+           
+        }
+        else
+        {
+            
         }
         
           

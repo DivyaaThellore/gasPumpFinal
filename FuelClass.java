@@ -7,7 +7,7 @@ import java.awt.Color; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Button1 extends Actor
+public class FuelClass extends Actor
 {
     MouseInfo mouse = Greenfoot.getMouseInfo();
 
@@ -16,8 +16,15 @@ public class Button1 extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     GreenfootImage gi = new GreenfootImage(20,20); 
+    MachineBase machine = new MachineBase();
+    String value="A";
     
-    public Button1(String text) {
+    public void setValue(String val)
+    {
+        value=val;
+    }
+    
+    public FuelClass(String text) {
         
        
         //setTexts(text);
@@ -25,6 +32,9 @@ public class Button1 extends Actor
           gi.drawString(text,0,25);
          setImage(gi);
         //((MyWorld) getWorld()).text().update("Welcome");
+    }
+    
+    public FuelClass(){
     }
     
     public void initTexts()
@@ -46,18 +56,20 @@ public class Button1 extends Actor
     
     public void act() 
     {
-        // Add your action code here.
-        //((MyWorld) getWorld()).text().update("Welcome");
-        /*if(Greenfoot.mouseClicked(this))
-        {*/
-            getWorld().removeObjects(getWorld().getObjects(GasPump.class));
-            //getWorld().removeObjects(getWorld().getObjects(Customer.class));
-            //((MyWorld) getWorld()).text().update("Welcome");
-            /*getWorld().addObject(machine1, 278,171);
-            Greenfoot.delay(30);
-            machine1.function();
-        }*/
+        if(Greenfoot.mousePressed(this))
+        {
+            machine.setFuelGrade(value);
+           
+        }
+        
     }   
+    
+    public void setMachine(MachineBase m)
+    {
+        machine=m;
+       
+    }
+    
 }
 
 

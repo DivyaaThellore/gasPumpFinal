@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PinScreen extends Screen
 {
+    Key key = new Key();
     /**
      * Act - do whatever the PinScreen wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -20,10 +21,11 @@ public class PinScreen extends Screen
     public void execute()
     
     {
-        m.setMessage1("Enter Pin Number");
+        m.setMessage1("Card Authenticated.");
         m.setMessage2(" ");
         m.setMessage3(" ");
         m.setMessage4(" ");
         m.setMessage5(" ");
+        
     }
 }

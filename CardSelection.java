@@ -21,7 +21,7 @@ public class CardSelection extends Screen
      public void execute()
     
     {
-        m.setMessage1("Select the Card type");
+        m.setMessage1("Select the Card type to proceed.");
         m.setMessage3("Debit?");
         m.setMessage5("Credit?");
     }

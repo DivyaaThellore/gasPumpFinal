@@ -21,9 +21,11 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(950, 600, 1);
+       
         prepare();
     }
 
+     
     private void prepare()
     {
 
@@ -46,51 +48,11 @@ public class MyWorld extends World
         gasPump3.setLocation(675,288);
         gasPump3.setMachine(machine3);
 
-        // addObject(button1,100,100);
-        //button1.setLocation(48,60);
-
-   
-        //messagepop.setLocation(426,166);
-        //addObject(messagepop);
-        
-
-        // addObject(button2,100,100);
-        // button2.setLocation(48,160);
-
-        // addObject(button3,100,100);
-        //  button3.setLocation(48,260);
-
         addObject(customer,50,500);
         //customer.setLocation
 
         //Greenfoot.playSound("beep.wav");
 
-        //Keypad keypad = new Keypad();
-        //addObject(keypad,300,100);
-
-        //keypad.setLocation(439,496);
-         
-        
-        
-          CardSlot cs = new CardSlot();
-        addObject(cs, 850, 100);
-        
-            Card c1 = new Card();
-        addObject(c1, 850, 200);
-        
-            Card c2 = new Card();
-        addObject(c2, 850, 300);
-        
-            Card c3 = new Card();
-        addObject(c3, 850, 400);
-        
-
-        
-        
-        
-        
-        
-        
     }
 
    

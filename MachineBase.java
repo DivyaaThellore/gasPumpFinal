@@ -1,31 +1,38 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
+import java.text.*;
 /**
  * Write a description of class GasPump here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
+
 public class MachineBase extends Actor
 {
+    
     /**
      * Act - do whatever the GasPump wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
 
-    Button1 b1;
+    //Button1 b1;
     
     Vector<Screen> screens = new Vector<Screen>();
     int index=0;
-    
+    int printCount;
+    String pinEntered ="";
+    boolean cardInSlot;
+    Key key=new Key();
     Keypad keypad=new Keypad();
     Button button = new Button();
     Message message1 = new Message();
+    Util util = new Util();
     
     Message message2=new Message();    
-     Message message3 = new Message();     
-      Message message4 = new Message();      
-       Message message5 = new Message();
+    Message message3 = new Message();     
+    Message message4 = new Message();      
+    Message message5 = new Message();
     public MachineBase(){
         GreenfootImage image = getImage() ;
         image.scale(550,350 ) ;
@@ -86,12 +93,28 @@ public class MachineBase extends Actor
         screens.add(cardSel);
         screens.add(debitCard);
         screens.add(creditCard);
-        screens.add(pinScreen);
-        screens.add(fuelType);
+        screens.add(pinScreen);//skipped
+        screens.add(fuelType);//Screen 5
         screens.add(instructionScreen);
         screens.add(receiptScreen);
-        screens.add(thankyouScreen);
+        screens.add(thankyouScreen); 
         
+        
+        FuelClass fuelA = new FuelClass();
+         fuelA.setMachine(this);
+             getWorld().addObject(fuelA, 150,450);
+            
+            FuelClass fuelB = new FuelClass();
+             fuelB.setMachine(this);
+            getWorld().addObject(fuelB, 250,450);
+            
+            FuelClass fuelC = new FuelClass();
+             fuelC.setMachine(this);
+            getWorld().addObject(fuelC, 350,450);
+
+           
+           
+           
 
         loginScreen.execute();
     }
@@ -99,39 +122,41 @@ public class MachineBase extends Actor
     public void addChildObjects()
     {
        getWorld().addObject(keypad,500,475);
+       keypad.setMachine(this);
        keypad.addKeys();
        
        //getWorld().addObject(button,240,100);
        Button b1=new Button();
-        getWorld().addObject(b1, 240,50);
+        getWorld().addObject(b1, getXLeftCorner(),(getYLeftCorner()+b1.getImage().getHeight()+40));
         
         Button b2=new Button();
-        getWorld().addObject(b2, 240,150);
+        getWorld().addObject(b2, getXLeftCorner(),(getYLeftCorner()+b1.getImage().getHeight()+115));
         
         Button okButton=new Button();
-        getWorld().addObject(okButton, 240,250);
+        getWorld().addObject(okButton, getXLeftCorner(),(getYLeftCorner()+b1.getImage().getHeight()+190));
         okButton.setMachine(this);
         okButton.setMessage(1);
         
         Button cancelButton=new Button();
-        getWorld().addObject(cancelButton, 240,350);
+        getWorld().addObject(cancelButton,getXLeftCorner(),(getYLeftCorner()+b1.getImage().getHeight()+265));
         cancelButton.setMessage(2);
 
         Button b5=new Button();
-        getWorld().addObject(b5, 760,50);
+        getWorld().addObject(b5,getXLeftCorner()+550,(getYLeftCorner()+b1.getImage().getHeight()+40));
+        
         Button b6=new Button();
-        getWorld().addObject(b6, 760,150);
+        getWorld().addObject(b6, getXLeftCorner()+550,(getYLeftCorner()+b1.getImage().getHeight()+115));
         
         Button debitScreen=new Button();
-        getWorld().addObject(debitScreen, 760,250);
+        getWorld().addObject(debitScreen, getXLeftCorner()+550,(getYLeftCorner()+b1.getImage().getHeight()+190));
         debitScreen.setMachine(this);
         debitScreen.setMessage(3);
         
         Button creditScreen=new Button();
-        getWorld().addObject(creditScreen, 760,350);
+        getWorld().addObject(creditScreen,getXLeftCorner()+550,(getYLeftCorner()+b1.getImage().getHeight()+265));
         creditScreen.setMachine(this);
         creditScreen.setMessage(4);
-        
+      
          message1.setTextBox(400, 50);
          setMessage1("WELCOME");
          //message1.setInstructions("WELCOME");     
@@ -158,14 +183,62 @@ public class MachineBase extends Actor
          getWorld().addObject(message5,getX()-getImage().getWidth()/2 + 460, getY()+140);
          
         nozzle nozzle = new nozzle();
-        getWorld().addObject(nozzle, 850,500);
+        nozzle.setMachine(this);
+        getWorld().addObject(nozzle, 800,500);
+        
+        CardSlot cs = new CardSlot();
+        getWorld().addObject(cs, 890, 100);
+        
+        Card c1 = new Card();
+        getWorld().addObject(c1, 890, 180);
+        
+        Card c2 = new Card();
+        getWorld().addObject(c2, 890, 260);
+
+        
+        Card c3 = new Card();
+        getWorld().addObject(c3, 890, 340);
+
         
        //create n screens and add to vector
     
     }
     
+    public void Fuelling(float elapsedTime)
+    {
+        //index
+        if(index==6)
+        {
+            DecimalFormat df= new DecimalFormat("##.##");
+            //df.format(elapsedTime);
+            setMessage1("Pumping gas..."+             df.format(elapsedTime) +" Gallons");
+        }
+    }
+    
+    public void notFuelling(float elapsedTime)
+    {
+        //index
+        if(index==6)
+        {
+            DecimalFormat df= new DecimalFormat("0.00");
+            //df.format(elapsedTime);
+            setMessage1("Total Fuelled: "+ df.format(elapsedTime) +" Gallons");
+        }
+    }
+    
+    public int getXLeftCorner()
+    {
+        return (this.getX()- this.getImage().getWidth()/2);
+    }
+
+    public int getYLeftCorner()
+    {
+        return (this.getY()- this.getImage().getHeight()/2);
+    }
+    
     public void okPressed()
     {
+        //Key key = new Key();
         //
         if(index==0)
         {
@@ -202,16 +275,28 @@ public class MachineBase extends Actor
             index++;
             index++;
             screens.get(index).execute();
+            //key.execute();
         }
         
-        else if(index==3)
+        else if(index==3) // credit card
         {
             index++;
             screens.get(index).execute();
+            //key.execute();
         }
         
-        else if(index==4)
+        else if(index==5) // fuel selection screen
         {
+            
+            
+            screens.get(index).execute();
+
+        }
+        
+        else if(index==6)
+        {
+            
+            screens.get(index).execute();
             
         }
         //screens
@@ -219,17 +304,37 @@ public class MachineBase extends Actor
     
     public void creditCardPressed()
     {
-      
+      if(index==1)
+      {
         index=3;
-        
+        screens.get(index).execute();
         //show the creditCardScreen
+      }
     }
     
     public void debitCardPressed()
     {
+        if(index==1)
+        {
         index=2;
         screens.get(index).execute();
         //show debitCardScreen index=
+     }
+    }
+    
+    public void getPinScreen()
+    {
+        if(index==2 || index==3)
+        {
+            index=5;
+            screens.get(index).execute();
+            key.execute();
+        }
+    }
+   
+    public void fuelType()
+    {
+        index=4;
     }
     
     public void showKeypad()
@@ -462,7 +567,17 @@ public class MachineBase extends Actor
         fuel_type = scanner.nextLine();
         return;
     }
-
+    String fuelGrade;
+    public void setFuelGrade(String value)
+    {
+        fuelGrade=value;
+        
+        if(index==5)
+        {
+            index=6;
+            okPressed();
+        }
+    }
     public void request_receipt()
     {
         System.out.println("Do you want a receipt for this transaction?");
@@ -540,54 +655,75 @@ public class MachineBase extends Actor
     {
         System.out.println("Thank you, Have a great day!");
     }
-    
-    /*public void welcomeSetText()
+    public void printNumber(String value)
     {
-        setMessage1("Welcome \n Please insert card");
-        setMessage2("Next");
-    }
-    
-    public void selectCardSetText()
-    {
-        setMessage1("Select Card Type.");
-        setMessage2("DEBIT");
-        setMessage3("CREDIT");
-    }
-    
-     public void enterCardSetText()
-    {
-        setMessage1("Enter Card Number");
        
-    }
-    
-     public void enterPinSetText()
-    {
-        setMessage1("Enter PIN Number");
-       
-    }
-    
-     public void enterZipSetText()
-    {
-        setMessage1("Enter ZIP Number");
-       
-    }
-    
-    public void fueltypeSetText()
-    {
-     setMessage1("Select Fuel Type");  
-     setMessage2("Fuel Type A-$2.8 ");
-     setMessage3("Fuel Type B-$2.1");
-    setMessage4("Fuel Type C-$3.3 ");
-    }
-    public void instructionSetText()
-    {
-        setMessage1("Remove the nozzle and pump the gas");
+        String drawString="";
+        
+        
+        if(index==2)//debit screen
+        {
+            
+             printCount++;
+             pinEntered=pinEntered+value;
+             for(int i=0; i<printCount;i++)
+             {
+                 drawString=drawString +"*";
+             }
+        
+             setMessage1(drawString);
+        
+             if(printCount==4)
+             {
+                 cardInSlot = util.validateDebitCard(pinEntered);
+                 pinEntered="";
+                 printCount=0;
+                 if (cardInSlot == true)
+                 {
+                     index=5;// to skip PinScreen class.
+                     okPressed();
+                 }
+                 else
+                 {
+                     setMessage1("Invalid Pin");
+                     Greenfoot.delay(5);
+                     index=1;
+                 }
+             }
+   
+        }
+        
+        else if( index==3)// credit screen
+        {
+             printCount++;
+         pinEntered=pinEntered+value;
+        for(int i=0; i<printCount;i++)
+        {
+            drawString=drawString +"*";
+        }
+        
+        setMessage1(drawString);
+        
+        if(printCount==5)
+        {
+            cardInSlot=util.validateCreditCard(pinEntered);
+            pinEntered="";
+            printCount=0;
+            if (cardInSlot == true)
+            {
+                index=5;
+                //index++;
+                screens.get(index).execute();
+            }
+            else
+            {
+                setMessage1("Invalid Zip");
+                Greenfoot.delay(5);
+                index=1;
+            }
+        }
         
     }
-    public void thanks()
-    {
-        setMessage1("Thank you, Have a great day!");
-        
-    }*/
+    }
 } 
     

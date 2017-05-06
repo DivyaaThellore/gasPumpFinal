@@ -20,8 +20,8 @@ public class CreditCardScreen extends Screen
     public void execute()
     
     {
-        m.setMessage1("Enter Credit Card Number");
-        m.setMessage2(" ");
+        m.setMessage1("Enter ZIP and click Next");
+        m.setMessage2("Next");
         m.setMessage3(" ");
         m.setMessage4(" ");
         m.setMessage5(" ");

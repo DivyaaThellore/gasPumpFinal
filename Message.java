@@ -7,7 +7,7 @@ import greenfoot.Color;
 public class Message extends Actor
 {
      GreenfootImage gi;
-     String valueMsg;
+     String valueMsg="*";
     public Message()
     {
         gi=new GreenfootImage(400,50);

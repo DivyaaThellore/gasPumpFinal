@@ -40,7 +40,7 @@ public class Bank extends Actor
       
     people[0].name="Jean";
     people[0].zip="52365";
-    people[0].pin="52365";
+    people[0].pin="5236";
     people[0].balance=123.00;
      people[0].credit_limit=0;
     people[0].card_type="debit";
@@ -48,7 +48,7 @@ public class Bank extends Actor
     
     people[1].name="Alizee";
     people[1].zip="35987";
-    people[1].pin="35987";
+    people[1].pin="3598";
     people[1].balance=0.00;
     people[1].credit_limit=3000;
     people[1].card_type="credit";
@@ -56,7 +56,7 @@ public class Bank extends Actor
     
     people[2].name="Adi";
     people[2].zip="56987";
-    people[2].pin="56987";
+    people[2].pin="5698";
     people[2].credit_limit=0.00;
     people[2].card_type="debit";
     people[2].balance=14.00;

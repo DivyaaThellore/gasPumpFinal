@@ -30,7 +30,8 @@ public class Button extends Actor
             else if(msg==2)
             {
                 //cancel. dont do anything
-            }
+                
+            } 
             else if(msg==3)
             {
                 machine.debitCardPressed();
@@ -39,9 +40,9 @@ public class Button extends Actor
             {
                 machine.creditCardPressed();
             }
-            else
+            else if(msg==5)
             {
-                //do nothing
+                machine.getPinScreen();
             }
             
             m.setKeyText("*");
