@@ -187,6 +187,7 @@ public class MachineBase extends Actor
         getWorld().addObject(nozzle, 800,500);
         
         CardSlot cs = new CardSlot();
+        cs.setMachine(this);
         getWorld().addObject(cs, 890, 100);
         
         Card c1 = new Card();
@@ -329,6 +330,15 @@ public class MachineBase extends Actor
         receipt.setInstructions("HI");
         getWorld().addObject(receipt, 200, 200);
     }
+
+    public void setCard()
+    {
+        if(index==2)
+        {
+            setMessage1("Card Received, Enter Pin");
+        }
+    }
+    
     
     public void creditCardPressed()
     {
