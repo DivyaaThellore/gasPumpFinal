@@ -51,7 +51,7 @@ public class Key extends Actor
 
      if(Greenfoot.mouseClicked(this))
         {
-            System.out.println("Key Pressed");
+           
             execute();
         }
         

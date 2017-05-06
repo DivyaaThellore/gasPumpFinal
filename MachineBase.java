@@ -105,7 +105,7 @@ public class MachineBase extends Actor
         FuelClass fuelA = new FuelClass();
          fuelA.setMachine(this);
          fuelA.setImage("images/GasolineGrade1.PNG");
-                      fuelA.getImage().scale(40, 80);
+             fuelA.getImage().scale(40, 80);
              getWorld().addObject(fuelA, 200,450);
             
             FuelClass fuelB = new FuelClass();
@@ -119,6 +119,7 @@ public class MachineBase extends Actor
              fuelC.setImage("images/GasolineGrade3.PNG");
              fuelC.getImage().scale(40, 80);
             getWorld().addObject(fuelC, 300,450);
+            
 
            
            
@@ -219,8 +220,9 @@ public class MachineBase extends Actor
         if(index==7)
         {
             DecimalFormat df= new DecimalFormat("0.00");
-            //df.format(elapsedTime);
+            elapsedTimeFinal = elapsedTime;
             setMessage1("Pumping gas..."+             df.format(elapsedTime/30000) +" Gallons");
+            setMessage2("Done");
         }
     }
     
@@ -328,10 +330,13 @@ public class MachineBase extends Actor
         //screens
     }
     
+    public float elapsedTimeFinal;
     public void printReceipt()
     {
         Message receipt = new Message()
         {
+
+    
             public void  act()
             {
                 if(Greenfoot.mouseClicked(this))
@@ -339,9 +344,30 @@ public class MachineBase extends Actor
                     getWorld().removeObject(this);
                 }
             }
-        };
-        receipt.setInstructions("HI");
-        getWorld().addObject(receipt, 200, 200);
+            
+                  public void setInstructions(String msg)
+    {  
+        gi = new GreenfootImage(300,200);
+        setImage(gi);
+        gi.clear();
+        gi.setColor(greenfoot.Color.BLUE);
+        gi.fill();
+        gi.setColor(greenfoot.Color.BLACK);
+        gi.drawString(msg,50,20);
+
+               
+        
+    }
+
+        }
+
+  
+;
+        receipt.setInstructions("Receipt Generated \n" + "Total Gallons : "+(elapsedTimeFinal/30000) +  "\n" + "Total Price : "+ (elapsedTimeFinal/30000)*2.8  );
+      //  receipt.getImage().scale(250, 100);
+
+        getWorld().addObject(receipt, 300, 300);
+        getWorld().setPaintOrder(receipt.getClass(),Key.class);
     }
 
     public void setCard()
@@ -714,7 +740,7 @@ public class MachineBase extends Actor
         String drawString="";
         
         
-        if(index==2)//debit screen
+        if(index==2 && cardInSlot==true)//debit screen
         {
             
              printCount++;
@@ -746,7 +772,7 @@ public class MachineBase extends Actor
    
         }
         
-        else if( index==3)// credit screen
+        else if( index==3 && cardInSlot==true)// credit screen
         {
              printCount++;
          pinEntered=pinEntered+value;

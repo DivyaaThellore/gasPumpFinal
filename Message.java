@@ -29,6 +29,7 @@ public class Message extends Actor
     public void setKeyText(String msg)
     {   gi.clear();
         gi.setColor(greenfoot.Color.YELLOW);
+        
         //gi.fill();
         
         gi.setColor(greenfoot.Color.BLACK);

@@ -6,4 +6,6 @@ comment2.params=mIn
 comment2.target=void\ setMachine(MachineBase)
 comment3.params=
 comment3.target=void\ execute()
-numComments=4
+comment4.params=
+comment4.target=boolean\ inValid()
+numComments=5

@@ -18,4 +18,9 @@ public abstract class Screen extends Actor
     }
     
    public abstract void execute();
+   
+   public  boolean inValid()
+   {
+       return true;
+    }
 }

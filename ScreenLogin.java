@@ -27,4 +27,9 @@ public class ScreenLogin extends Screen
         return;
     }
     
+    
+    public boolean isValid()
+    {
+        return true;
+    }
 }
